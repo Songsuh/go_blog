@@ -1,0 +1,11 @@
+.idea
+etc/*.pid
+/go.sum
+/file
+logs/*
+build/*
+.DS_Store
+*/.DS_Store
+etc/config-songsh*.yaml
+cmd/test.go
+etc/config-local.yaml

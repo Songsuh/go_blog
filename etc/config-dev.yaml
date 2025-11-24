@@ -1,0 +1,72 @@
+Server:
+  Port: :8766 # 服务端口
+  Name: go_blog # 服务名称
+  Mode: debug   # 环境 dev-研发 uat-测试 prod-生产
+Log:
+  Name: blog # 日志名称
+  Encoding: json # 日志编码
+  Stat: false # 日志统计
+  Mode: file # 日志模式 file-文件 console-控制台
+  Level: debug # 日志级别
+  Compress: true # 日志压缩
+  KeepDays: 3 # 日志保留天数
+  Rotation: daily # 日志滚动
+  Path: storage/logs # 日志路径
+Jwt:
+  Secret: fating # jwt密钥
+  Expire: 3 # jwt过期时间 天
+  Issuer: go_blog # jwt签发人
+Redis:
+  addr: 127.0.0.1:6379
+  username:
+  password:
+  database: 4
+  clientname: blog
+  maxRetries: 2
+  readTimeout: 3s
+  writeTimeout: 3s
+  dialTimeout: 3s
+  poolSize: 10
+  minIdleConns: 4
+  maxIdleConns: 6
+Mysql:
+  blog1:           # 数据库类型
+    desc: 博客主库          # 描述
+    hostname: 127.0.0.1    # 服务器地址
+    database: gvb      # 数据库名
+    username: root         # 用户名
+    password: ''         # 密码
+    port: 3306             # 端口
+    charset: utf8mb4       # 编码
+    prefix: ''             # 表前缀
+    pool:
+      maxOpenConn: 10
+      maxIdleConn: 2
+      maxLifetime: 3600s
+  blog2:           # 别名
+    desc: 博客副库          # 描述
+    hostname: 127.0.0.1    # 服务器地址
+    database: blog      # 数据库名
+    username: root         # 用户名
+    password: ''         # 密码
+    port: 3306             # 端口
+    charset: utf8mb4       # 编码
+    prefix: ''             # 表前缀
+    pool:
+      maxOpenConn: 10
+      maxIdleConn: 2
+      maxLifetime: 3600s
+Mongodb:
+  database: dev
+  uri: mongodb://dds-m5e8d6ea44fe18d41885-pub.mongodb.rds.aliyuncs.com:3717,dds-m5e8d6ea44fe18d42464-pub.mongodb.rds.aliyuncs.com:3717/admin?replicaSet=mgset-61765487
+  username: dever
+  password: facai@188
+  mechanism: SCRAM-SHA-256
+  authSource: dev
+  connectTimeout: 3s
+  timeout: 15s
+  maxPoolSize: 100
+  minPoolSize: 10
+  maxConnIdleTime: 60s
+Upload:
+  Path: uploads # 上传路径
