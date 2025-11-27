@@ -46,57 +46,11 @@ func (s *Server) boot() {
 	gin.SetMode(s.Mode)
 	// 创建gin实例
 	r := gin.New()
-	r.Use(gin.Recovery(), gin.Logger(), s.requestTimeout(), s.corsMiddleware())
+	r.Use(gin.Recovery(), gin.Logger(), RequestTimeout(), CorsMiddleware())
 	// 注册路由
 	RegisterRouter(r)
-	// 注册健康检查路由
-	s.registerHealthCheck(r)
 	// 启动HTTP服务器
 	s.startHTTPServer(r)
-}
-
-// requestTimeout 请求超时中间件
-func (s *Server) requestTimeout() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		ctx, cancel := context.WithTimeout(c.Request.Context(), 30*time.Second)
-		defer cancel()
-		c.Request = c.Request.WithContext(ctx)
-		c.Next()
-	}
-}
-
-// corsMiddleware 跨域中间件
-func (s *Server) corsMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
-
-		if c.Request.Method == "OPTIONS" {
-			c.AbortWithStatus(204)
-			return
-		}
-
-		c.Next()
-	}
-}
-
-// registerHealthCheck 注册健康检查路由
-func (s *Server) registerHealthCheck(r *gin.Engine) {
-	r.GET("/health", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"status":    "healthy",
-			"timestamp": time.Now().Unix(),
-			"uptime":    time.Since(s.bootTime).String(),
-		})
-	})
-
-	r.GET("/ready", func(c *gin.Context) {
-		// 这里可以添加数据库连接检查等就绪检查
-		c.JSON(200, gin.H{
-			"status": "ready",
-		})
-	})
 }
 
 // startHTTPServer 启动HTTP服务器

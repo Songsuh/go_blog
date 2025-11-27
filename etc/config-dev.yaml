@@ -3,15 +3,15 @@ Server:
   Name: go_blog # 服务名称
   Mode: debug   # 环境 dev-研发 uat-测试 prod-生产
 Log:
-  Name: blog # 日志名称
+  ServiceName: blog # 日志名称
   Encoding: json # 日志编码
   Stat: false # 日志统计
-  Mode: file # 日志模式 file-文件 console-控制台
-  Level: debug # 日志级别
+  Driver: file # 日志模式 file-文件 console-控制台
+  Level: info # 日志级别
   Compress: true # 日志压缩
   KeepDays: 3 # 日志保留天数
   Rotation: daily # 日志滚动
-  Path: storage/logs # 日志路径
+  Path: ./runtime/logs # 日志路径
 Jwt:
   Secret: fating # jwt密钥
   Expire: 3 # jwt过期时间 天

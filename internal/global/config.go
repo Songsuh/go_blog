@@ -23,15 +23,15 @@ type ServerConfig struct {
 
 // LogConfig 日志配置
 type LogConfig struct {
-	Name     string `yaml:"Name"`
-	Encoding string `yaml:"Encoding"`
-	Stat     bool   `yaml:"Stat"`
-	Mode     string `yaml:"Mode"`
-	Level    string `yaml:"Level"`
-	Compress bool   `yaml:"Compress"`
-	KeepDays int    `yaml:"KeepDays"`
-	Rotation string `yaml:"Rotation"`
-	Path     string `yaml:"Path"`
+	ServerName string `yaml:"ServiceName"`
+	Encoding   string `yaml:"Encoding"`
+	Stat       bool   `yaml:"Stat"`
+	Driver     string `yaml:"Driver"`
+	Level      string `yaml:"Level"`
+	Compress   bool   `yaml:"Compress"`
+	KeepDays   int    `yaml:"KeepDays"`
+	Rotation   string `yaml:"Rotation"`
+	Path       string `yaml:"Path"`
 }
 
 // JwtConfig JWT配置

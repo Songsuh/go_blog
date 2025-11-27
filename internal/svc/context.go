@@ -59,6 +59,8 @@ func ReadConfig() *global.Config {
 			log.Fatalf("解析配置文件失败: %v", err)
 		}
 		log.Println("配置文件内容加载成功: ", configFile)
+		// 初始化日志系统
+		InitLogger(&Conf.Log)
 	})
 	return Conf
 }
