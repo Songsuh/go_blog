@@ -1,4 +1,4 @@
-package handle
+package server
 
 import (
 	"context"
@@ -32,6 +32,7 @@ func RequestTimeout() gin.HandlerFunc {
 	}
 }
 
+// Logger 日志
 func Logger() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		start := time.Now()

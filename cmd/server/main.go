@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/Songsuh/go_blog/internal/handle"
+	"github.com/Songsuh/go_blog/internal/server"
 	"os"
 	"os/signal"
 	"syscall"
@@ -15,7 +15,7 @@ func main() {
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	server := handle.NewServer()
+	server := server.NewServer()
 	go func() {
 		server.Run(ctx)
 	}()

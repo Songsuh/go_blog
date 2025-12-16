@@ -1,4 +1,4 @@
-package handle
+package server
 
 import (
 	"context"
@@ -83,7 +83,7 @@ func (s *Server) waitForShutdown(server *http.Server) {
 	log.Println("Server is shutting down...")
 
 	// 创建关闭上下文，最多等待30秒
-	shutdownCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	shutdownCtx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
 	// 优雅关闭服务器
