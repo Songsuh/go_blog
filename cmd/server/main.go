@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/Songsuh/go_blog/internal/server"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"go_blog/internal/server"
 )
 
 func main() {
@@ -15,13 +16,13 @@ func main() {
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	server := server.NewServer()
+	newServer := server.NewServer()
 	go func() {
-		server.Run(ctx)
+		newServer.Run(ctx)
 	}()
 	for range signalChan {
-		server.Stop(ctx)
+		_ = newServer.Stop(ctx)
 		cancel()
 	}
-	fmt.Printf("server stopped")
+	fmt.Printf("newServer stopped")
 }

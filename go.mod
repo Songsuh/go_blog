@@ -1,4 +1,4 @@
-module github.com/Songsuh/go_blog
+module go_blog
 
 go 1.24.2
 

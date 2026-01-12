@@ -2,16 +2,17 @@ package svc
 
 import (
 	"fmt"
-	"github.com/Songsuh/go_blog/internal/global"
-	"github.com/Songsuh/go_blog/internal/tools"
-	"github.com/joho/godotenv"
-	"github.com/redis/go-redis/v9"
-	"github.com/spf13/viper"
-	"gorm.io/gorm"
+	"go_blog/internal/global"
+	"go_blog/internal/tools"
 	"log"
 	"os"
 	"path/filepath"
 	"sync"
+
+	"github.com/joho/godotenv"
+	"github.com/redis/go-redis/v9"
+	"github.com/spf13/viper"
+	"gorm.io/gorm"
 )
 
 var (

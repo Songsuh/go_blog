@@ -3,11 +3,13 @@ package server
 import (
 	"context"
 	"errors"
-	"github.com/Songsuh/go_blog/internal/svc"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"time"
+
+	"go_blog/internal/svc"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Server struct {

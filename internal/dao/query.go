@@ -2,7 +2,7 @@ package dao
 
 import (
 	"fmt"
-	"github.com/Songsuh/go_blog/internal/svc"
+	"go_blog/internal/svc"
 	"gorm.io/gorm"
 )
 

@@ -1,10 +1,10 @@
 package svc
 
 import (
-	"github.com/Songsuh/go_blog/internal/global"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 	"go.mongodb.org/mongo-driver/v2/mongo/readconcern"
+	"go_blog/internal/global"
 )
 
 func CreatMongo(c *global.MongoDb) *mongo.Client {

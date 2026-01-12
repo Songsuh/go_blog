@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/Songsuh/go_blog/internal/dao"
-	"github.com/Songsuh/go_blog/internal/model"
+	"go_blog/internal/dao"
+	"go_blog/internal/model"
 )
 
 // var env, _ = os.ReadFile(".env")

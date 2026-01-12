@@ -1,8 +1,8 @@
 package svc
 
 import (
-	"github.com/Songsuh/go_blog/internal/global"
 	"github.com/redis/go-redis/v9"
+	"go_blog/internal/global"
 )
 
 func CreateRedis(c *global.RedisConfig) *redis.Client {

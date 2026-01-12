@@ -6,6 +6,6 @@ logs/*
 build/*
 .DS_Store
 */.DS_Store
-etc/config-songsh*.yaml
 cmd/test.go
 etc/config-local.yaml
+runtime/*
